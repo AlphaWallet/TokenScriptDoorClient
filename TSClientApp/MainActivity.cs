@@ -35,9 +35,9 @@ namespace App1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        //private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
-        //private string key = "<handshake key>";  // 'handshakeKey' from keyfile, should be 32 hex characters    
-        //private int keyOffset = 1; // 'handshakeKeyIndex' from keyfile, usually is 1
+        private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
+        private string key = "<handshake key>";  // 'handshakeKey' from keyfile, should be 32 hex characters    
+        private int keyOffset = 1; // 'handshakeKeyIndex' from keyfile, usually is 1
         private Plugin.Android.AugustLock.AugustLockDevice august;
 
         private string[] challengeWords = { "Apples", "Oranges", "Grapes", "DragonFruit", "BreadFruit", "Pomegranate", "Aubergine", "Fungi", "Falafel", "Carrot", "Tomato"};
