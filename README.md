@@ -1,6 +1,4 @@
 # TokenScriptDoorClient
-TokenScriptDoorClient
-
 
 This is an alpha app which provides an ECDSA secure interface between the Bluetooth link to an August Door lock and the TokenScript ScriptProxy bridge (A Springboot running on a remote server).
 
