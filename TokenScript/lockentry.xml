@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ts:token xmlns:ts="http://tokenscript.org/2020/06/tokenscript"
+          xmlns:xhtml="http://www.w3.org/1999/xhtml"
+          xmlns:xml="http://www.w3.org/XML/1998/namespace"
+          xsi:schemaLocation="http://tokenscript.org/2020/06/tokenscript http://tokenscript.org/2020/06/tokenscript.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:asnx="urn:ietf:params:xml:ns:asnx"
+          xmlns:ethereum="urn:ethereum:constantinople"
+          custodian="false">  
+   <ts:label>
+    <ts:plurals xml:lang="en">
+      <ts:string quantity="one">Entry Token</ts:string>
+      <ts:string quantity="other">Entry Tokens</ts:string>
+    </ts:plurals>
+    <ts:plurals xml:lang="es">
+      <ts:string quantity="one">Boleto de admisión</ts:string>
+      <ts:string quantity="other">Boleto de admisiónes</ts:string>
+    </ts:plurals>
+    <ts:plurals xml:lang="zh">
+      <ts:string quantity="one">入場券</ts:string>
+      <ts:string quantity="other">入場券</ts:string>
+    </ts:plurals>
+  </ts:label>
+  <ts:contract interface="erc721" name="EntryToken">
+    <ts:address network="4">0x6c658C19d68b8738470EDc2D0692cBFc94808EdD</ts:address>
+  </ts:contract>
+  <ts:origins>
+    <!-- Define the contract which holds the token that the user will use -->
+    <ts:ethereum contract="EntryToken">
+    </ts:ethereum>
+  </ts:origins>
+  <!--
+        <ts:selection id="expired" filter="expired=TRUE">
+		<ts:denial>
+			<ts:string xml:lang="en">Entrance permission has expired</ts:string>
+			<ts:string xml:lang="zh">进入许可已过期</ts:string>
+		</ts:denial>
+	  </ts:selection>-->
+    <ts:selection id="expired" filter="${expired}=TRUE">
+      <ts:name>
+        <ts:plurals xml:lang="en">
+          <ts:string quantity="one">Expired Token</ts:string>
+          <ts:string quantity="other">Expired Tokens</ts:string>
+        </ts:plurals>
+        <ts:string xml:lang="zh">已经过期的票</ts:string>
+      </ts:name>
+	  <ts:denial>
+			<ts:string xml:lang="en">Entrance permission has expired</ts:string>
+			<ts:string xml:lang="zh">进入许可已过期</ts:string>
+	  </ts:denial>
+    </ts:selection>
+  <ts:cards>
+    <ts:card type="token">
+	<ts:item-view xml:lang="en">
+      <style type="text/css">.ts-count {
+  font-family: "SourceSansPro";
+  font-weight: bolder;
+  font-size: 21px;
+  color: rgb(117, 185, 67);
+}
+.ts-category {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 21px;
+  color: rgb(67, 67, 67);
+}
+.ts-venue {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(67, 67, 67);
+}
+.ts-date {
+  font-family: "SourceSansPro";
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.ts-time {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(112, 112, 112);
+}
+html {
+}
+
+body {
+padding: 0px;
+margin: 0px;
+}
+
+div {
+margin: 0px;
+padding: 0px;
+}
+
+.data-icon {
+height:16px;
+vertical-align: middle
+}
+
+.tbml-count {   font-family: "SourceSansPro";   font-weight: bolder;   font-size: 21px;   color: rgb(117, 185, 67); } .tbml-category {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 21px;   color: rgb(67, 67, 67); } .tbml-venue {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(67, 67, 67); } .tbml-date {   font-family: "SourceSansPro";   font-weight: bold;   font-size: 14px;   color: rgb(112, 112, 112);   margin-left: 7px;   margin-right: 7px; } .tbml-time {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(112, 112, 112); }    html {    }        body {    padding: 0px;    margin: 0px;    }        div {    margin: 0px;    padding: 0px;    }     .data-icon {    height:16px;    vertical-align: middle    } 
+
+
+</style>
+        <div>
+        <!-- Iconified view displayed on the first page when clicking on token card in AlphaWallet -->
+        <p>Unlock the Front door with this token
+        <img alt="" src="data:image/jpeg;base64,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"></img>
+        </p>
+</div>
+
+      </ts:item-view>
+      <ts:view xml:lang="en">
+	  <style type="text/css">.ts-count {
+  font-family: "SourceSansPro";
+  font-weight: bolder;
+  font-size: 21px;
+  color: rgb(117, 185, 67);
+}
+.ts-category {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 21px;
+  color: rgb(67, 67, 67);
+}
+.ts-venue {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(67, 67, 67);
+}
+.ts-date {
+  font-family: "SourceSansPro";
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.ts-time {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(112, 112, 112);
+}
+html {
+}
+
+body {
+padding: 0px;
+margin: 0px;
+}
+
+div {
+margin: 0px;
+padding: 0px;
+}
+
+.data-icon {
+height:16px;
+vertical-align: middle
+}
+
+.tbml-count {   font-family: "SourceSansPro";   font-weight: bolder;   font-size: 21px;   color: rgb(117, 185, 67); } .tbml-category {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 21px;   color: rgb(67, 67, 67); } .tbml-venue {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(67, 67, 67); } .tbml-date {   font-family: "SourceSansPro";   font-weight: bold;   font-size: 14px;   color: rgb(112, 112, 112);   margin-left: 7px;   margin-right: 7px; } .tbml-time {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(112, 112, 112); }    html {    }        body {    padding: 0px;    margin: 0px;    }        div {    margin: 0px;    padding: 0px;    }     .data-icon {    height:16px;    vertical-align: middle    } 
+
+
+</style>
+<script type="text/javascript">
+(function() {
+        'use strict'
+        
+    }())
+
+class Token {
+    constructor(tokenInstance) {
+        this.props = tokenInstance;
+    }
+
+    render() {
+        return `&lt;div&gt;
+            &lt;div&gt;
+                &lt;span class="ts-count"&gt;x${this.props._count}&lt;/span&gt;  &lt;span class="ts-category"&gt;${this.props.name}&lt;/span&gt;
+            &lt;/div&gt;
+                &lt;div style="margin: 0px; padding:0px; clear: both; height: 6px"&gt;
+                &amp;nbsp;
+                &lt;/div&gt;
+            &lt;div&gt;
+                &lt;img src="data:image/png;base64,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" class="data-icon"/&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;`;
+    }
+}
+
+web3.tokens.dataChanged = (oldTokens, updatedTokens, cardId) =&gt; {
+    const currentTokenInstance = updatedTokens.currentInstance;
+    document.getElementById(cardId).innerHTML = new Token(currentTokenInstance).render();
+};
+
+</script>
+    </ts:view>
+    </ts:card>
+    <ts:card type="action">
+      <!-- This Mint function doesn't actually work yet ...
+           It's still WIP
+      -->
+      <ts:label>
+        <ts:string xml:lang="en">Mint</ts:string>
+        <ts:string xml:lang="zh">铸造的</ts:string>
+        <ts:string xml:lang="es">Acuñar</ts:string>
+      </ts:label>
+	  <ts:view xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+      <style type="text/css">.ts-count {
+  font-family: "SourceSansPro";
+  font-weight: bolder;
+  font-size: 21px;
+  color: rgb(117, 185, 67);
+}
+.ts-category {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 21px;
+  color: rgb(67, 67, 67);
+}
+.ts-venue {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(67, 67, 67);
+}
+.ts-date {
+  font-family: "SourceSansPro";
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.ts-time {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(112, 112, 112);
+}
+html {
+}
+
+body {
+padding: 0px;
+margin: 0px;
+}
+
+div {
+margin: 0px;
+padding: 0px;
+}
+
+.data-icon {
+height:16px;
+vertical-align: middle
+}
+
+.tbml-count {   font-family: "SourceSansPro";   font-weight: bolder;   font-size: 21px;   color: rgb(117, 185, 67); } .tbml-category {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 21px;   color: rgb(67, 67, 67); } .tbml-venue {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(67, 67, 67); } .tbml-date {   font-family: "SourceSansPro";   font-weight: bold;   font-size: 14px;   color: rgb(112, 112, 112);   margin-left: 7px;   margin-right: 7px; } .tbml-time {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(112, 112, 112); }    html {    }        body {    padding: 0px;    margin: 0px;    }        div {    margin: 0px;    padding: 0px;    }     .data-icon {    height:16px;    vertical-align: middle    } 
+#inputBox {
+  text-align: center;
+}
+input {
+  position: relative;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 9.5px 14px;
+  width: 300px;
+  border-color: #D8D8D8;
+}
+input[type=text]:focus {
+  border-color: #D8D8D8;
+  background: #FAFAFA;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+</style>
+        <script type="text/javascript">
+class Token {
+    constructor(tokenInstance) {
+        this.props = tokenInstance
+    }
+	
+	render() {
+	return`
+	    <h3>Mint a new token ...</h3>
+      <br/>
+		<div id="contractAddress">${this.props.contractAddress}</div>
+		<div id="status"/>`;
+	}
+}
+
+web3.tokens.dataChanged = (oldTokens, updatedTokens, cardId) =&gt; {
+    const currentTokenInstance = updatedTokens.currentInstance;
+    document.getElementById(cardId).innerHTML = new Token(currentTokenInstance).render();
+};
+
+    function handleErrors(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.text();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        window.onload = function startup() {
+            // 1. call API to fetch challenge
+            fetch('http://stormbird.duckdns.org:8082/api/getChallenge')
+                .then(handleErrors)
+                .then(function (response) {
+                    document.getElementById('msg').innerHTML = 'Challenge: ' + response
+                    window.challenge = response
+                })
+        }
+
+        window.onConfirm = function onConfirm(signature) {
+            if (window.challenge === undefined || window.challenge.length == 0) return
+            const challenge = window.challenge
+            document.getElementById('status').innerHTML = 'Wait for signature...'
+            // 2. sign challenge to generate response
+            web3.personal.sign({ data: challenge }, function (error, value) {
+                if (error != null) {
+                    document.getElementById('status').innerHTML = error
+                    //window.onload();
+                    //return
+                }
+                else
+                {
+
+                document.getElementById('status').innerHTML = 'Verifying credentials ...'
+                // 3. open door
+                let contractAddress = document.getElementById("contractAddress").textContent;
+                fetch(`http://stormbird.duckdns.org:8082/api/checkSignature?openTime=120&amp;sig=${value}`)
+                    .then(function (response) {
+                      if (!response.ok) {
+                        document.getElementById('status').innerHTML = response.statusText;
+                        throw Error(response.statusText);
+                      }
+                      else
+                      {
+                        return response.text()
+                      }
+                    })
+                    .then(function (response) {
+                        if (response == "pass") {
+                            document.getElementById('status').innerHTML = 'Entrance granted!'
+                            window.close()
+                        } else {
+                            document.getElementById('status').innerHTML = 'Failed with: ' + response
+                        }
+                    }).catch(function() {
+                      console.log("error blah");
+                    });
+                }
+            });
+            window.challenge = '';
+            document.getElementById('msg').innerHTML = '';
+        }
+    })
+</script>
+      </ts:view>
+    </ts:card>
+
+    <ts:card type="action">
+      <!-- this action is of the model confirm-back.
+      It should be <ts:action model="confirm-back"> but Weiwu
+      shied away from specifying that due to the likely change of design causing an upgrade path issue.
+      window.onConfirm is called if user hit "confirm";
+      window.close() causes the back button to be pressed.
+      -->
+      <ts:label>
+        <ts:string xml:lang="en">Enter</ts:string>
+        <ts:string xml:lang="zh">入場</ts:string>
+        <ts:string xml:lang="es">Entrar</ts:string>
+      </ts:label>
+	  <ts:view xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+      <style type="text/css">.ts-count {
+  font-family: "SourceSansPro";
+  font-weight: bolder;
+  font-size: 21px;
+  color: rgb(117, 185, 67);
+}
+.ts-category {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 21px;
+  color: rgb(67, 67, 67);
+}
+.ts-venue {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(67, 67, 67);
+}
+.ts-date {
+  font-family: "SourceSansPro";
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(112, 112, 112);
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.ts-time {
+  font-family: "SourceSansPro";
+  font-weight: lighter;
+  font-size: 16px;
+  color: rgb(112, 112, 112);
+}
+html {
+}
+
+body {
+padding: 0px;
+margin: 0px;
+}
+
+div {
+margin: 0px;
+padding: 0px;
+}
+
+.data-icon {
+height:16px;
+vertical-align: middle
+}
+
+.tbml-count {   font-family: "SourceSansPro";   font-weight: bolder;   font-size: 21px;   color: rgb(117, 185, 67); } .tbml-category {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 21px;   color: rgb(67, 67, 67); } .tbml-venue {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(67, 67, 67); } .tbml-date {   font-family: "SourceSansPro";   font-weight: bold;   font-size: 14px;   color: rgb(112, 112, 112);   margin-left: 7px;   margin-right: 7px; } .tbml-time {   font-family: "SourceSansPro";   font-weight: lighter;   font-size: 16px;   color: rgb(112, 112, 112); }    html {    }        body {    padding: 0px;    margin: 0px;    }        div {    margin: 0px;    padding: 0px;    }     .data-icon {    height:16px;    vertical-align: middle    } 
+
+
+</style>
+        <script type="text/javascript">
+class Token {
+    constructor(tokenInstance) {
+        this.props = tokenInstance
+    }
+	
+	render() {
+	return`
+	    <h3>Welcome home ...</h3>
+		<div id="msg">Preparing to unlock the entrance door.</div>
+		<div id="inputBox">
+                 <h3>Door open time</h3>
+                 <input id="openTime" type="number" value='120' />
+              </div>
+		<div id="contractAddress">${this.props.contractAddress}</div>
+		<div id="status"/>`;
+	}
+}
+
+web3.tokens.dataChanged = (oldTokens, updatedTokens, cardId) =&gt; {
+    const currentTokenInstance = updatedTokens.currentInstance;
+    document.getElementById(cardId).innerHTML = new Token(currentTokenInstance).render();
+};
+
+    function handleErrors(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.text();
+    }
+
+    //var serverAddr = "http://117.78.44.115";
+    var iotAddr = "0xef8981c2623702a4efb3b9a58d3a4946fd8ca54e";
+    var serverAddr = "http://121.37.140.91";
+
+    document.addEventListener("DOMContentLoaded", function() {
+        window.onload = function startup() {
+            // 1. call API to fetch challenge james.lug.org.cn
+            fetch(`${serverAddr}:8080/api/${iotAddr}/getChallenge`)
+                .then(handleErrors)
+                .then(function (response) {
+                    document.getElementById('msg').innerHTML = 'Challenge: ' + response
+                    window.challenge = response
+                })
+        }
+
+        window.onConfirm = function onConfirm(signature) {
+            if (window.challenge === undefined || window.challenge.length == 0) return
+            const challenge = window.challenge
+            document.getElementById('status').innerHTML = 'Wait for signature...'
+            // 2. sign challenge to generate response
+            web3.personal.sign({ data: challenge }, function (error, value) {
+                if (error != null) {
+                    document.getElementById('status').innerHTML = error
+                    //window.onload();
+                    //return
+                }
+                else
+                {
+
+                document.getElementById('status').innerHTML = 'Verifying credentials ...'
+                // 3. open door
+                let contractAddress = document.getElementById("contractAddress").textContent;
+                fetch(`${serverAddr}:8080/api/${iotAddr}/checkSignature?openTime=120&amp;sig=${value}`)
+                    .then(function (response) {
+                      if (!response.ok) {
+                        document.getElementById('status').innerHTML = response.statusText;
+                        throw Error(response.statusText);
+                      }
+                      else
+                      {
+                        return response.text()
+                      }
+                    })
+                    .then(function (response) {
+                        if (response == "pass") {
+                            document.getElementById('status').innerHTML = 'Entrance granted!'
+                            window.close()
+                        } else {
+                            document.getElementById('status').innerHTML = 'Failed with: ' + response
+                        }
+                    }).catch(function() {
+                      console.log("error blah");
+                    });
+                }
+            });
+            window.challenge = '';
+            document.getElementById('msg').innerHTML = '';
+        }
+    })
+</script>
+      </ts:view>
+    </ts:card>
+  </ts:cards>
+</ts:token>
