@@ -38,11 +38,11 @@ Addendum and notes to the method from the above repo for finding the BlueTooth k
 - Log into the Yale Access app on the rooted device/emulator and complete the linking as per instructions (you have to enter two codes, from phone and email).
 - Once you see your house name in the app you can pull the details. Try to open the lock.
 - In a file browser (Use either the device browser or Android Studio, or even Windows Explorer etc) go to 
-	/data/data/com.august.bennu/shared_prefs
+	```/data/data/com.august.bennu/shared_prefs```
 - Open the file called 'PeripheralInfoCache.xml', and pull the following three params:
-'bluetoothAddress'
-'handshakeKey'
-'handshakeKeyIndex'
+```'bluetoothAddress'```
+```'handshakeKey'```
+```'handshakeKeyIndex'```
 If you can't see all of these params, then you haven't yet completed setup. You need to have successfully opened the lock.
 - Open the ```MainActivity.cs``` file in the project
 - Locate the three params at the top:
