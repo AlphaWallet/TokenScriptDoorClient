@@ -35,9 +35,9 @@ namespace App1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
-        private string key = "<handshake key>";  // 'handshakeKey' from keyfile, should be 32 hex characters    
-        private int keyOffset = 1; // 'handshakeKeyIndex' from keyfile, usually is 1
+        //private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
+        //private string key = "<handshake key>";  // 'handshakeKey' from keyfile, should be 32 hex characters    
+        //private int keyOffset = 1; // 'handshakeKeyIndex' from keyfile, usually is 1
         private Plugin.Android.AugustLock.AugustLockDevice august;
 
         private string[] challengeWords = { "Apples", "Oranges", "Grapes", "DragonFruit", "BreadFruit", "Pomegranate", "Aubergine", "Fungi", "Falafel", "Carrot", "Tomato"};
@@ -442,10 +442,9 @@ namespace App1
                     //IPAddress ipAddress = ipHostInfo.AddressList[0];
                     //IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
-                    //IPHostEntry ipHostInfo = Dns.GetHostEntry("http://117.78.44.115/");
-                    //IPAddress ipAddress = new IPAddress("http://117.78.44.115/");// ipHostInfo.AddressList[0];
-                    System.Net.IPAddress ipAddress = System.Net.IPAddress.Parse("117.78.44.115");
-                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, 8081);
+                    //System.Net.IPAddress ipAddress = System.Net.IPAddress.Parse("117.78.44.115");
+                    System.Net.IPAddress ipAddress = System.Net.IPAddress.Parse("121.37.140.91");
+                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, 8003);
 
                     // Create a TCP/IP  socket.  
                     sender = new Socket(ipAddress.AddressFamily,
