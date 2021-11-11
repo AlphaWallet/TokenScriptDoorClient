@@ -47,7 +47,7 @@ If you can't see all of these params, then you haven't yet completed setup. You 
 - Open the ```MainActivity.cs``` file in the project
 - Locate the three params at the top:
 ```
-		private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
+    private string lockAddr = "<YOUR LOCK BLUETOOTH ADDR>"; //eg 125623562356 - 'bluetoothAddress' from keyfile, with colons removed
     private string key = "<handshake key>";  // 'handshakeKey' from keyfile, should be 32 hex characters    
     private int keyOffset = 1; // 'handshakeKeyIndex' from keyfile, usually is 1
 ```		
