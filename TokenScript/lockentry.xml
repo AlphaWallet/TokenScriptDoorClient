@@ -22,7 +22,7 @@
     </ts:plurals>
   </ts:label>
   <ts:contract interface="erc721" name="EntryToken">
-    <ts:address network="4">0x6c658C19d68b8738470EDc2D0692cBFc94808EdD</ts:address>
+    <ts:address network="4">0xEa8341Db1a3ddd6F97A123889004cDC86a11a172</ts:address>
   </ts:contract>
   <ts:origins>
     <!-- Define the contract which holds the token that the user will use -->
@@ -473,7 +473,7 @@ web3.tokens.dataChanged = (oldTokens, updatedTokens, cardId) =&gt; {
     }
 
     //var serverAddr = "http://117.78.44.115";
-    var iotAddr = "0xef8981c2623702a4efb3b9a58d3a4946fd8ca54e";
+    var iotAddr = "0xef8981C2623702A4efB3B9A58d3a4946Fd8cA54e";
     var serverAddr = "http://121.37.140.91";
 
     document.addEventListener("DOMContentLoaded", function() {
