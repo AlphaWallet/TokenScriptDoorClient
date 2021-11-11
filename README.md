@@ -18,3 +18,8 @@ The comms between a typical TokenScript and the device look like this:
 12. The DoorClient app EC-recovers the signing address from the signature using the current challenge (the BreadFruit value from 8).
 13. The DoorClient app checks the designated entry Token balance of this signing address.
 14. If the signing address holds the designated entry token, the app unlocks the door via the Bluetooth connection.
+
+
+This project uses an adapted version of the Library here:
+
+https://github.com/Marcus-L/xamarin-august-ble
