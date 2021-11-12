@@ -223,8 +223,8 @@ namespace App1
         private async Task<bool> checkTokenBalanceAndUnlock(string address)
         //private async Task checkTokenBalanceAndUnlock()
         {
-            var tokenContractAddress = "0x6c658C19d68b8738470EDc2D0692cBFc94808EdD";
-            var web3 = new Web3("https://rinkeby.infura.io/v3/48a611a8ab0d4b6d91ffd2f0eeae389e");
+            var tokenContractAddress = "0xEa8341Db1a3ddd6F97A123889004cDC86a11a172";
+            var web3 = new Web3("https://rinkeby.infura.io/v3/da3717f25f824cc1baa32d812386d93f");
 
             var balanceOfMessage = new BalanceOfFunction() { Owner = address };
 
