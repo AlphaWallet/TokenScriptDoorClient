@@ -26,7 +26,7 @@ https://github.com/Marcus-L/xamarin-august-ble
 
 Addendum and notes to the method from the above repo for finding the BlueTooth keys (how I got it):
 
-###NB - note that this method CAN'T be used in an attack against your door, notice that you provide permission in one of the steps.
+### NB - note that this method CAN'T be used in an attack against your door, notice that you provide permission in one of the steps.
 
 - requires you to have a second SIM card (different to the one tied to your main phone which operates the lock with the approved app)
 - First sign up with your normal phone as per the lock instructions
